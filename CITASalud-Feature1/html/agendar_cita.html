@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Cita Médica</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="./../css/style.css?v=2">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
+</head>
+
+<body>
+    <header class="main-header">
+        <h1>
+            Agendar Cita
+        </h1>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="agendar_cita.html"><i class="fas fa-calendar-plus"></i> Agendar Cita</a></li>
+                <li><a href="citas.html" class="active"><i class="fas fa-calendar-times"></i>Mis Citas</a>
+                <li><a href="estadisticas.html" class="active"><i class="fas fa-chart-bar"></i>Estadísticas de
+                        Asistencia</a></li>
+                </li>
+                <li><a href="#" id="logout-link"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Agendar Cita Médica</h1>
+
+        <form id="cita-form">
+            <div class="form-group">
+                <label for="especialidad"><i class="fas fa-stethoscope"></i>Selecciona la Especialidad:</label>
+                <select id="especialidad" name="especialidad" required disabled>
+                    <option value="">Cargando...</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="sede"><i class="fas fa-hospital"></i>Selecciona la Sede:</label>
+                <select id="sede" name="sede" required disabled>
+                    <option value="">Selecciona primero una especialidad</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="profesional"><i class="fas fa-user-md"></i>Selecciona el Profesional:</label>
+                <select id="profesional" name="profesional" required disabled>
+                    <option value="">Selecciona primero una especialidad y sede</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="horario"><i class="fas fa-calendar-alt"></i>Selecciona el Horario:</label>
+                <input type="text" id="horario" placeholder="Selecciona una fecha" required disabled>
+            </div>
+            <div id="horarios-list" style="display:none;"></div>
+            <input type="hidden" id="horario_seleccionado" name="horario">
+
+            <button type="button" id="agendar-btn" style="display:none;">Agendar Cita</button>
+        </form>
+
+        <div id="mensaje" class="mensaje"></div>
+
+        <div id="resumen-cita" style="display:none;">
+            <h4>Resumen de la Cita</h4>
+            <p><strong>Paciente:</strong> <span id="resumen-paciente"></span></p>
+            <p><strong>Especialidad:</strong> <span id="resumen-especialidad"></span></p>
+            <p><strong>Profesional:</strong> <span id="resumen-profesional"></span></p>
+            <p><strong>Sede y Dirección:</strong> <span id="resumen-sede"></span></p>
+            <p><strong>Fecha y Hora:</strong> <span id="resumen-fecha-hora"></span></p>
+            <div class="botones-accion">
+                <button type="submit" id="confirmar-btn">Confirmar Cita</button>
+                <button type="button" id="regresar-btn">Modificar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-confirmacion" class="modal">
+        <div class="modal-content">
+            <h2>Cita confirmada</h2>
+            <p>Cita confirmada correctamente. Se envió la confirmación a su correo electrónico.</p>
+            <button id="btn-aceptar">Aceptar</button>
+        </div>
+    </div>
+
+    <div id="notification-toast-container"></div>
+
+    <script src="./../js/agendar_cita.js"></script>
+    <script src="./../js/script_general.js"></script>
+    <script src="./../js/limpiar_agendamiento.js"></script>
+    <script src="./../js/notifications.js"></script>
+</body>
+
+</html>

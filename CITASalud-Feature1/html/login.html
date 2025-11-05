@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <title>Login de Paciente</title>
+    <link rel="stylesheet" href="./../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Iniciar Sesión</h1>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="id_paciente">Número de Documento:</label>
+                <input type="text" id="id_paciente" name="id_paciente" required>
+            </div>
+            <button type="submit" id="agendar-btn">Continuar</button>
+            <div id="mensaje" class="mensaje"></div>
+        </form>
+    </div>
+    <script src="./../js/login.js"></script>
+</body>
+</html>
